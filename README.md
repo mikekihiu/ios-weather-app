@@ -1,5 +1,5 @@
 # FavouriteMap
 A simple app to view weather forecast for bookmarked locations 
 
-# Prerequisites
-Enter your open weather api to WeatherAPI.swift
+# Prerequisite
+Enter your [openweather](https://openweathermap.org) api key at WeatherAPI.swift
