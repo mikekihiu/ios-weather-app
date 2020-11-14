@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherAPI {
     
-    private static let API_KEY = "b17badc778d459e95b2dced16c506d26"
+    private static let API_KEY = ""
     
     public enum UnitSystem: String {
         case standard, metric, imperial
