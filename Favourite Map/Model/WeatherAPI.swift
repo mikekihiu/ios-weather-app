@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherAPI {
     
-    private static let API_KEY = ""
+    private static var API_KEY = ""
     
     public enum UnitSystem: String {
         case standard, metric, imperial
@@ -91,5 +91,13 @@ extension WeatherAPI {
         default:
             return ""
         }
+    }
+    
+    class func updateApiKey(_ newKey: String) {
+        API_KEY = newKey
+    }
+    
+    class func validateApiKey() -> Bool {
+        return !API_KEY.replacingOccurrences(of: " ", with: "").isEmpty
     }
 }

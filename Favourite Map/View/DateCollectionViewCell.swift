@@ -19,7 +19,7 @@ class DateCollectionViewCell: UICollectionViewCell {
         lbDate.textColor = .label
     }
     
-    func selectedBackGround() {
+    func selectBackGround() {
         layer.cornerRadius = frame.height * 0.375
         layer.backgroundColor = UIColor.systemBlue.cgColor
         layer.borderWidth = 0

@@ -372,6 +372,10 @@
                                     <constraint firstItem="Apm-3e-ctY" firstAttribute="top" secondItem="axN-d1-dd3" secondAttribute="bottom" id="zKb-Ur-sTY"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="fSB-nS-FC3">
+                                <rect key="frame" x="197" y="440.5" width="20" height="20"/>
+                                <color key="color" systemColor="systemBlueColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hl1-se-Z8n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -381,12 +385,15 @@
                             <constraint firstItem="eZh-s7-J77" firstAttribute="centerY" secondItem="Hl1-se-Z8n" secondAttribute="centerY" id="8eW-D0-Gka"/>
                             <constraint firstItem="RBc-y9-XtX" firstAttribute="top" secondItem="Hl1-se-Z8n" secondAttribute="top" constant="20" id="G2P-gP-aaJ"/>
                             <constraint firstItem="RBc-y9-XtX" firstAttribute="leading" secondItem="Hl1-se-Z8n" secondAttribute="leading" constant="20" id="WTW-kV-nAR"/>
+                            <constraint firstItem="fSB-nS-FC3" firstAttribute="centerY" secondItem="Hl1-se-Z8n" secondAttribute="centerY" id="ezi-2O-sTl"/>
                             <constraint firstItem="eZh-s7-J77" firstAttribute="leading" secondItem="Hl1-se-Z8n" secondAttribute="leading" constant="20" id="lQN-1X-bKg"/>
+                            <constraint firstItem="fSB-nS-FC3" firstAttribute="centerX" secondItem="Hl1-se-Z8n" secondAttribute="centerX" id="oLA-eO-Jwu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="City" largeTitleDisplayMode="never" id="9wU-gc-QFx"/>
                     <connections>
                         <outlet property="collectionView" destination="RBc-y9-XtX" id="fSo-TM-eJg"/>
+                        <outlet property="indicator" destination="fSB-nS-FC3" id="Z5U-JW-PUN"/>
                         <outlet property="lbCityName" destination="lxE-IP-FPI" id="T4r-jH-ejU"/>
                         <outlet property="lbDate" destination="RO0-U1-MlZ" id="q6g-Tr-JUV"/>
                         <outlet property="lbDescription" destination="axN-d1-dd3" id="AVa-xK-HiV"/>
@@ -407,6 +414,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
