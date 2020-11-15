@@ -34,9 +34,9 @@ class SettingsViewController: UIViewController {
     }
     
     @objc func tappedClearLocations() {
-        let alertVC = UIAlertController(title: "Delete", message: "Sure you want to clear all bookmarked location", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Clear", message: "Sure you want to clear all bookmarked location?", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertVC.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: {_ in
+        alertVC.addAction(UIAlertAction(title: "Clear", style: .destructive, handler: {_ in
             BookmarkedLocation.clearAll()
             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.hasJustClearedBookmarks.rawValue)
         }))
