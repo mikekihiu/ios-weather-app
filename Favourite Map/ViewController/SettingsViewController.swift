@@ -55,6 +55,8 @@ class SettingsViewController: UIViewController {
     }
 }
 
+//MARK: Extensions
+//MARK: Pickerview data source
 extension SettingsViewController: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -68,6 +70,7 @@ extension SettingsViewController: UIPickerViewDataSource {
 
 }
 
+//MARK: Pickerview data delegate
 extension SettingsViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

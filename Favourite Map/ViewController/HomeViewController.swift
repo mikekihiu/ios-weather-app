@@ -69,16 +69,9 @@ class HomeViewController: UITableViewController {
 
     // MARK: Helper methods
     private func setupFetchedResultsController() {
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: BookmarkedLocation.getFetchRequest(), managedObjectContext: DataController.shared.viewContext, sectionNameKeyPath: nil, cacheName: DataController.Cache.bookmarks.rawValue)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: BookmarkedLocation.getFetchRequest(), managedObjectContext: CoreDataStack.shared.viewContext, sectionNameKeyPath: nil, cacheName: CoreDataStack.Cache.bookmarks.rawValue)
         fetchedResultsController?.delegate = self
         try? fetchedResultsController?.performFetch()
-    }
-
-    func deleteBookmark(at indexPath: IndexPath) {
-        if let bookmarkToDelete = fetchedResultsController?.object(at: indexPath) {
-            DataController.shared.viewContext.delete(bookmarkToDelete)
-            DataController.shared.saveViewContext()
-        }
     }
     
     //MARK: Navigation
@@ -125,7 +118,7 @@ extension HomeViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
-        case .delete: deleteBookmark(at: indexPath)
+        case .delete: BookmarkedLocation.delete(fetchedResultsController?.object(at: indexPath))
         default:
             break
         }

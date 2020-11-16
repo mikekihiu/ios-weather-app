@@ -1,5 +1,5 @@
 //
-//  DataController.swift
+//  CoreDataStack.swift
 //  Favourite Map
 //
 //  Created by Mike on 12/11/2020.
@@ -8,11 +8,11 @@
 import Foundation
 import CoreData
 
-class DataController {
+class CoreDataStack {
     
-    static let shared = DataController(modelName: Model.Favourite_Map.rawValue)
+    static let shared = CoreDataStack()
         
-    let persistentContainer:NSPersistentContainer
+    var persistentContainer:NSPersistentContainer
     
     var viewContext:NSManagedObjectContext {
         return persistentContainer.viewContext
@@ -20,8 +20,8 @@ class DataController {
     
     let backgroundContext:NSManagedObjectContext!
     
-    private init(modelName:String) {
-        persistentContainer = NSPersistentContainer(name: modelName)
+    init() {
+        persistentContainer = NSPersistentContainer(name: Model.Favourite_Map.rawValue)
         backgroundContext = persistentContainer.newBackgroundContext()
     }
     
@@ -45,7 +45,7 @@ class DataController {
     }
 }
 
-extension DataController {
+extension CoreDataStack {
     
     enum Model: String {
         case Favourite_Map
@@ -60,16 +60,13 @@ extension DataController {
     }
     
     func autoSaveViewContext(interval:TimeInterval = 30) {
-        //print("autosaving")
         guard interval > 0 else {
             print("cannot set negative autosave interval")
             return
         }
-        
         if viewContext.hasChanges {
             saveViewContext()
         }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
             self.autoSaveViewContext(interval: interval)
         }

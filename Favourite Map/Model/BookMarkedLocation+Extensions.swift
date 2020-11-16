@@ -11,14 +11,15 @@ import Contacts
 import CoreData
 
 extension BookmarkedLocation {
-    class func save(_ mapItem: MKMapItem) {
-        if exists(mapItem) { return }
-        let bookmarkedLocation = BookmarkedLocation(context: DataController.shared.viewContext)
+    
+    class func save(_ mapItem: MKMapItem, _ stack: CoreDataStack = CoreDataStack.shared) {
+        if exists(stack, mapItem) { return }
+        let bookmarkedLocation = BookmarkedLocation(context: stack.viewContext)
         bookmarkedLocation.title = mapItem.name
         bookmarkedLocation.subtitle = extractAddress(mapItem.placemark)
         bookmarkedLocation.lat = mapItem.placemark.coordinate.latitude
         bookmarkedLocation.lon = mapItem.placemark.coordinate.longitude
-        DataController.shared.saveViewContext()
+        stack.saveViewContext()
     }
     
     static fileprivate func extractAddress(_ placemark: MKPlacemark) -> String {
@@ -26,10 +27,22 @@ extension BookmarkedLocation {
         return CNPostalAddressFormatter.string(from: postalAddress, style: .mailingAddress).replacingOccurrences(of: "\n", with: " ")
     }
     
-    static fileprivate func exists(_ mapItem: MKMapItem) -> Bool {
+    /// Checks if location is already persisted to prevent duplicates. Can be improved to match using combo of lat and lon instead of name
+    /// - Parameters:
+    ///   - stack: core data stack
+    ///   - mapItem: map item that's about to be converted to a BookmarkedLocation
+    /// - Returns: true if exists, else false
+    static fileprivate func exists(_ stack: CoreDataStack, _ mapItem: MKMapItem) -> Bool {
         let fetchRequest = getFetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title == %@", mapItem.name!)
-        return try! DataController.shared.viewContext.fetch(fetchRequest).count > 0
+        return try! stack.viewContext.fetch(fetchRequest).count > 0
+    }
+    
+    class func delete(_ location: BookmarkedLocation?, _ coreDataStack: CoreDataStack = CoreDataStack.shared) {
+        if let location = location {
+            coreDataStack.viewContext.delete(location)
+            coreDataStack.saveViewContext()
+        }
     }
     
     class func getFetchRequest() -> NSFetchRequest<BookmarkedLocation> {
@@ -38,12 +51,11 @@ extension BookmarkedLocation {
         return fetchRequest
     }
     
-    
     /// Deletes all bookmarked location
-    class func clearAll() {
+    class func clearAll(_ stack: CoreDataStack = CoreDataStack.shared) {
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: NSFetchRequest(entityName: "BookmarkedLocation"))
         do {
-            try DataController.shared.persistentContainer.persistentStoreCoordinator.execute(batchDeleteRequest, with: DataController.shared.viewContext)
+            try stack.persistentContainer.persistentStoreCoordinator.execute(batchDeleteRequest, with: stack.viewContext)
         } catch {
             print(error)
         }
