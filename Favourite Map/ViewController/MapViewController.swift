@@ -31,11 +31,7 @@ class MapViewController: UIViewController {
             mapView.addAnnotation(Location(coordinate: mapItem.placemark.coordinate, title: mapItem.name!))
             BookmarkedLocation.save(mapItem)
         }
-//        let compass = MKCompassButton(mapView: mapView)
-//        compass.compassVisibility = .visible
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: compass)
-        mapView.showsCompass = true
-        
+
         // Register reusable identifiers
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationReusableID.pin.rawValue)
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
@@ -51,18 +47,9 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? Location else { return nil }
         let view = mapView.dequeueReusableAnnotationView(withIdentifier: AnnotationReusableID.pin.rawValue, for: annotation) as? MKMarkerAnnotationView
-//        view?.canShowCallout = true
         view?.clusteringIdentifier = "searchResult"
-//
-//        let infoButton = UIButton(type: .detailDisclosure)
-//        view?.rightCalloutAccessoryView = infoButton
         return view
     }
-//
-//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        guard let annotation = view.annotation as? Location else { return }
-//        //print("tapped \(annotation.title!)")
-//    }
 }
 
 
