@@ -60,6 +60,8 @@ class SearchResultsViewController: UITableViewController {
     }
 }
 
+//MARK: Extensions
+//MARK: Tableview data source
 extension SearchResultsViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,6 +93,11 @@ extension SearchResultsViewController {
         }
         return highlightedString
     }
+
+}
+
+//MARK: Tableview delegate
+extension SearchResultsViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedTitle = completerResults?[indexPath.row].title {
@@ -99,11 +106,11 @@ extension SearchResultsViewController {
     }
 }
 
+//MARK: Search completer delegate
 extension SearchResultsViewController: MKLocalSearchCompleterDelegate {
     
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         completerResults = completer.results
-        //print("results count \(completer.results.count)")
     }
     
     func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
@@ -111,13 +118,15 @@ extension SearchResultsViewController: MKLocalSearchCompleterDelegate {
     }
 }
 
+//MARK: Observe changes in searchbar text
 extension SearchResultsViewController: UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
-        // Ask `MKLocalSearchCompleter` for new completion suggestions based on the change in the text entered in `UISearchBar`.
         searchCompleter?.queryFragment = searchController.searchBar.text ?? ""
     }
 }
 
+//MARK: Search for MapItem given place name
 extension SearchResultsViewController {
     
     func search(for queryString: String?) {
@@ -127,12 +136,7 @@ extension SearchResultsViewController {
     }
     
     func search(using searchRequest: MKLocalSearch.Request) {
-        // Confine the map search area to an area around the user's current location.
-        //searchRequest.region = boundingRegion
-        
-        // Include only point of interest results. This excludes results based on address matches.
         searchRequest.resultTypes = .pointOfInterest
-        
         localSearch = MKLocalSearch(request: searchRequest)
         localSearch?.start { [unowned self] (response, error) in
             guard error == nil else {
