@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherAPI {
     
-    private static var API_KEY = ""
+    private static var API_KEY = "0b337c11cc6a779b2a4e4e6e70879a13"
     
     public enum UnitSystem: String {
         case standard, metric, imperial
@@ -56,6 +56,31 @@ class WeatherAPI {
             }
         }.resume()
     }
+    
+    class func getTodaysForecast(lat: Double, lon: Double, completion: @escaping (SingleForecast?, Error?) -> Void) {
+        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=\(getUnitSystem())&appid=\(API_KEY)"
+        let request = URLRequest(url: URL(string: url)!)
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let result = try decoder.decode(SingleForecast.self, from: data)
+                DispatchQueue.main.async {
+                    completion(result, nil)
+                }
+            } catch {
+                print(error)
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }.resume()
+    }
 
 }
 
@@ -69,7 +94,7 @@ extension WeatherAPI {
         UserDefaults.standard.set(system, forKey: UserDefaults.Keys.unitSystem.rawValue)
     }
     
-    class func getTemperatureUnit() -> String {
+    class var temperatureUnit: String {
         switch UnitSystem(rawValue: getUnitSystem()) {
         case .imperial:
             return Temperature.F.rawValue
