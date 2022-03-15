@@ -39,14 +39,15 @@ class WeatherAPI {
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
                 let results = try decoder.decode(Response.self, from: data)
+                
                 var forecasts: [Forecast] = []
-                var idx = 0
-                while (idx < 40) {
+                var idx = 39
+                while (idx >= 7) {
                     forecasts.append(Forecast(results.list[idx], results.city))
-                    idx = idx + 8
+                    idx = idx - 8
                 }
                 DispatchQueue.main.async {
-                    completion(forecasts, nil)
+                    completion(forecasts.reversed(), nil)
                 }
             } catch {
                 print(error)

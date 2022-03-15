@@ -38,7 +38,7 @@ class SearchResultsViewController: UITableViewController {
     // MARK: View callbacks
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(SearchResultsTableViewCell.self, forCellReuseIdentifier: SearchResultsTableViewCell.reusableID)
+        tableView.register(SearchResultsTableViewCell.self, forCellReuseIdentifier: SearchResultsTableViewCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +73,7 @@ extension SearchResultsViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultsTableViewCell.reusableID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultsTableViewCell.identifier, for: indexPath)
 
         if let result = completerResults?[indexPath.row] {
             cell.textLabel?.attributedText = createHighlightedString(text: result.title, rangeValues: result.titleHighlightRanges)
@@ -138,13 +138,13 @@ extension SearchResultsViewController {
     func search(using searchRequest: MKLocalSearch.Request) {
         searchRequest.resultTypes = .pointOfInterest
         localSearch = MKLocalSearch(request: searchRequest)
-        localSearch?.start { [unowned self] (response, error) in
+        localSearch?.start { [weak self] (response, error) in
             guard error == nil else {
-                self.showError(error)
+                self?.showError(error)
                 return
             }
-            selectedRegion = response?.boundingRegion
-            selectedLocation = response?.mapItems.first
+            self?.selectedRegion = response?.boundingRegion
+            self?.selectedLocation = response?.mapItems.first
             
         }
     }
@@ -153,14 +153,12 @@ extension SearchResultsViewController {
 // MARK: SearchResultsTableViewCell
 class SearchResultsTableViewCell: UITableViewCell {
     
-    static let reusableID = "SearchResultCell"
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 }
 

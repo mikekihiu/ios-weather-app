@@ -1,5 +1,5 @@
 //
-//  BookMarkedLocation+Extensions.swift
+//  BookMarkedLocation+.swift
 //  Favourite Map
 //
 //  Created by Mike on 13/11/2020.

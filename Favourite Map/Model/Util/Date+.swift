@@ -10,6 +10,8 @@ import Foundation
 extension Date {
     
     var asWeekDay: String? {
-        DateFormatter().weekdaySymbols[Calendar.current.component(.weekday, from: self)]
+        let format = DateFormatter()
+        format.dateFormat = "EEEE"
+        return format.string(from: self)
     }
 }

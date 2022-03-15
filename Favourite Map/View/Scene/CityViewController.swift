@@ -7,25 +7,15 @@
 
 import UIKit
 
+protocol CityDelegate: class {
+    func didCompleteNetworkCalls()
+    func showError(_ error: Error?)
+    func showProgress(_ show: Bool)
+}
+
 class CityViewController: UIViewController {
 
-    private var forecasts: [Forecast]? {
-        didSet {
-            if todaysForecast == nil { return }
-            tableView.reloadData()
-            showForecast()
-        }
-    }
-    
-    private var todaysForecast: SingleForecast? {
-        didSet {
-            if forecasts == nil { return }
-            tableView.reloadData()
-            showForecast()
-        }
-    }
-    
-    var city: BookmarkedLocation?
+    lazy var viewModel = CityViewModel(cityDelegate: self)
 
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -43,16 +33,15 @@ class CityViewController: UIViewController {
             showApiError()
             return
         }
-        if let city = city {
+        if viewModel.city != nil {
 //            navigationItem.title = city.title
-            indicator.startAnimating()
-            WeatherAPI.get5DayForecast(lat: city.lat, lon: city.lon, completion: handleApiReponse(_:_:))
-            WeatherAPI.getTodaysForecast(lat: city.lat, lon: city.lon, completion: handleTodaysForecast(_:_:))
+            showProgress(true)
+            viewModel.callWeatherApi()
         }
     }
     
     private func showForecast() {
-        guard let today = todaysForecast, let forecast = today.forecast,
+        guard let today = viewModel.todaysForecast, let forecast = today.forecast,
         let condition = WeatherCondition(rawValue: forecast) else { return }
         let attrs = NSMutableAttributedString(string: "\(today.temperature(.mid).asWholeNumber)°", attributes: [.font: UIFont.systemFont(ofSize: 48, weight: .bold)])
         let conditionAttrs = NSAttributedString(string: "\n\(condition.text.uppercased())", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .semibold)])
@@ -71,23 +60,6 @@ class CityViewController: UIViewController {
         }
     }
     
-    private func handleTodaysForecast(_ forecast: SingleForecast?, _ error: Error?) {
-        guard error == nil else {
-            showError(error)
-            return
-        }
-        todaysForecast = forecast
-    }
-    
-    func handleApiReponse(_ forecasts: [Forecast]?, _ error: Error?) {
-        indicator.stopAnimating()
-        guard error == nil else {
-            showError(error)
-            return
-        }
-        self.forecasts = forecasts
-    }
-    
     func showApiError() {
         let vc = UIAlertController(title: "Required!", message: "Set API_KEY at WeatherAPI.swift and run the app again", preferredStyle: .alert)
         vc.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
@@ -102,20 +74,33 @@ class CityViewController: UIViewController {
 extension CityViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        forecasts?.count ?? 0
+        viewModel.forecasts?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DayCell.identifier) as? DayCell
         else { return UITableViewCell() }
-        cell.configure(with: forecasts?[indexPath.row])
+        cell.configure(with: viewModel.forecasts?[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: HeaderView.identifier) as? HeaderView else { return nil }
-        header.configure(with: todaysForecast)
+        header.configure(with: viewModel.todaysForecast)
         return header
+    }
+}
+
+//MARK: CityDelegate
+extension CityViewController: CityDelegate {
+    
+    func didCompleteNetworkCalls() {
+        tableView.reloadData()
+        showForecast()
+    }
+    
+    func showProgress(_ show: Bool) {
+        show ? indicator.startAnimating() : indicator.stopAnimating()
     }
 }
