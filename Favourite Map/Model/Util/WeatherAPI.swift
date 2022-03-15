@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherAPI {
     
-    private static var API_KEY = ""
+    private static var API_KEY = "0b337c11cc6a779b2a4e4e6e70879a13"
     
     public enum UnitSystem: String {
         case standard, metric, imperial
@@ -88,7 +88,7 @@ class WeatherAPI {
 extension WeatherAPI {
     
     class func getUnitSystem() -> String {
-       return UserDefaults.standard.string(forKey: UserDefaults.Keys.unitSystem.rawValue) ?? UnitSystem.standard.rawValue
+       return UserDefaults.standard.string(forKey: UserDefaults.Keys.unitSystem.rawValue) ?? UnitSystem.metric.rawValue
     }
     
     class func updateUnitSystem(_ system: String) {
