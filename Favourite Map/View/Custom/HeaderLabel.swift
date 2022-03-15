@@ -20,6 +20,7 @@ class HeaderLabel: UILabel {
     
     private func setUp() {
         translatesAutoresizingMaskIntoConstraints = false
+        textColor = .white
         numberOfLines = 2
     }
     

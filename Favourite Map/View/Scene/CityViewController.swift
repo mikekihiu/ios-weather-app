@@ -48,7 +48,7 @@ class CityViewController: UIViewController {
         attrs.append(conditionAttrs)
         weatherLabel.attributedText = attrs
         switch condition {
-        case .rainy:
+        case .rainy, .drizzle:
             weatherIcon.image = UIImage(named: "rainy")
             weatherBackground.backgroundColor = UIColor(named: "rainy")
         case .cloudy:

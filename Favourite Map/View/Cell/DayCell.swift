@@ -22,7 +22,7 @@ extension DayCell {
         temperatureLabel.text = "\(forecast?.temperature[1].asWholeNumber ?? "")°"
         guard let weather = forecast?.main, let condition = WeatherCondition(rawValue: weather) else { return }
         switch condition {
-        case .rainy:
+        case .rainy, .drizzle:
             icon.image = UIImage(named: "rain")
         case .cloudy:
             icon.image = UIImage(named: "partlysunny")

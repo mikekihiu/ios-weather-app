@@ -116,6 +116,7 @@ enum WeatherCondition: String {
     case rainy = "Rain"
     case cloudy = "Clouds"
     case sunny = "Clear"
+    case drizzle = "Drizzle"
     
     var text: String {
         switch self {
@@ -125,6 +126,8 @@ enum WeatherCondition: String {
             return "Rainy"
         case .sunny:
             return "Sunny"
+        case .drizzle:
+            return "Drizzly"
         }
     }
 }
