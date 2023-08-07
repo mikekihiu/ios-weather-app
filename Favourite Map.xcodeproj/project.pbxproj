@@ -34,11 +34,12 @@
 		275F25B227DF19C2002FF051 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F25B127DF19C2002FF051 /* Date+.swift */; };
 		275F25B427DF28D7002FF051 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F25B327DF28D7002FF051 /* String+.swift */; };
 		276545F52A80C6FE00F6DF15 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276545F42A80C6FE00F6DF15 /* MapViewViewModel.swift */; };
-		276545F82A80CDF200F6DF15 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276545F72A80CDF200F6DF15 /* FloatingActionButton.swift */; };
+		276545F82A80CDF200F6DF15 /* MapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276545F72A80CDF200F6DF15 /* MapScene.swift */; };
 		27E90743255E518100B38AB9 /* BookMarkedLocation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E90742255E518100B38AB9 /* BookMarkedLocation+.swift */; };
 		27E90748255E7C9D00B38AB9 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E90747255E7C9C00B38AB9 /* Forecast.swift */; };
 		27E90750255E817E00B38AB9 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9074F255E817E00B38AB9 /* CityViewController.swift */; };
 		27E9075B255EA38A00B38AB9 /* ViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9075A255EA38A00B38AB9 /* ViewController+.swift */; };
+		27EFC3F82A80E96400E09DF1 /* CityScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFC3F72A80E96400E09DF1 /* CityScene.swift */; };
 		27F770C92562549A00176D1F /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F770C82562549A00176D1F /* TestCoreDataStack.swift */; };
 		27F770CE2562589B00176D1F /* BookmarkedLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F770CD2562589B00176D1F /* BookmarkedLocationTests.swift */; };
 		27F770D62562781700176D1F /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F770D52562781700176D1F /* HomeViewControllerTests.swift */; };
@@ -95,11 +96,12 @@
 		275F25B127DF19C2002FF051 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		275F25B327DF28D7002FF051 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		276545F42A80C6FE00F6DF15 /* MapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewModel.swift; sourceTree = "<group>"; };
-		276545F72A80CDF200F6DF15 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
+		276545F72A80CDF200F6DF15 /* MapScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
 		27E90742255E518100B38AB9 /* BookMarkedLocation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMarkedLocation+.swift"; sourceTree = "<group>"; };
 		27E90747255E7C9C00B38AB9 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		27E9074F255E817E00B38AB9 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		27E9075A255EA38A00B38AB9 /* ViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+.swift"; sourceTree = "<group>"; };
+		27EFC3F72A80E96400E09DF1 /* CityScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityScene.swift; sourceTree = "<group>"; };
 		27F770C82562549A00176D1F /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		27F770CD2562589B00176D1F /* BookmarkedLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedLocationTests.swift; sourceTree = "<group>"; };
 		27F770D52562781700176D1F /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
@@ -273,7 +275,8 @@
 		276545F62A80C82600F6DF15 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				276545F72A80CDF200F6DF15 /* FloatingActionButton.swift */,
+				276545F72A80CDF200F6DF15 /* MapScene.swift */,
+				27EFC3F72A80E96400E09DF1 /* CityScene.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -433,10 +436,11 @@
 				274B5DA0255FA26000DEB0B5 /* SettingsViewController.swift in Sources */,
 				275F25AF27DF1841002FF051 /* DayCell.swift in Sources */,
 				2723332E27E066AE00E24071 /* CityViewModel.swift in Sources */,
+				27EFC3F82A80E96400E09DF1 /* CityScene.swift in Sources */,
 				275F25B227DF19C2002FF051 /* Date+.swift in Sources */,
 				274B8870255CEE0C00F57966 /* SceneDelegate.swift in Sources */,
 				274B88EC255DB0EA00F57966 /* CoreDataStack.swift in Sources */,
-				276545F82A80CDF200F6DF15 /* FloatingActionButton.swift in Sources */,
+				276545F82A80CDF200F6DF15 /* MapScene.swift in Sources */,
 				273AFE8B27DF82A200AD3534 /* HeaderView.swift in Sources */,
 				274B5DAA255FCC6600DEB0B5 /* HelpViewController.swift in Sources */,
 				273AFE8D27DF8C4F00AD3534 /* UITableView+.swift in Sources */,

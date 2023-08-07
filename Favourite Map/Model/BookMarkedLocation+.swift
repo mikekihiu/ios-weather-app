@@ -66,4 +66,8 @@ extension BookmarkedLocation {
             #endif
         }
     }
+    
+    static func random() -> BookmarkedLocation? {
+        return try? CoreDataStack.shared.viewContext.fetch(fetchRequest()).randomElement()
+    }
 }

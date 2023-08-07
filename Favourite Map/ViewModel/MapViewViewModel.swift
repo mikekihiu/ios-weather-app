@@ -9,15 +9,14 @@ import MapKit
 
 struct MapViewViewModel {
     
-    var location: BookmarkedLocation?
-    
-    mutating func bookmark(_ mapItem: MKMapItem) {
-        location = BookmarkedLocation.save(mapItem)
+    let mapItem: MKMapItem?
+    let boundingRegion: MKCoordinateRegion?
+    var location: BookmarkedLocation? {
+        guard let mapItem else { return nil }
+        return BookmarkedLocation.save(mapItem)
     }
     
-    var cityScene: CityViewController? {
-        let cityScene = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CityViewController") as? CityViewController
-        cityScene?.viewModel.city = location
-        return cityScene
+    func bookmark(_ mapItem: MKMapItem) {
+        BookmarkedLocation.save(mapItem)
     }
 }

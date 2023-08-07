@@ -34,7 +34,6 @@ class CityViewController: UIViewController {
             return
         }
         if viewModel.city != nil {
-//            navigationItem.title = city.title
             showProgress(true)
             viewModel.callWeatherApi()
         }

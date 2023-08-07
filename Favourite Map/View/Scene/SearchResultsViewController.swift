@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import SwiftUI
 
 class SearchResultsViewController: UITableViewController {
     
@@ -27,11 +28,9 @@ class SearchResultsViewController: UITableViewController {
     var selectedRegion: MKCoordinateRegion?
     var selectedLocation: MKMapItem? {
         didSet {
-            if let vc = host?.storyboard?.instantiateViewController(identifier: "MapViewController") as? MapViewController {
-                vc.mapItem = selectedLocation
-                vc.boundingRegion = selectedRegion
-                host?.navigationController?.pushViewController(vc, animated: true)
-            }
+            let mapViewModel = MapViewViewModel(mapItem: selectedLocation, boundingRegion: selectedRegion)
+            let controller = UIHostingController(rootView: MapScene(viewModel: mapViewModel))
+            host?.navigationController?.pushViewController(controller, animated: true)
         }
     }
     
