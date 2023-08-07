@@ -13,7 +13,7 @@ fileprivate struct MapSceneView: UIViewControllerRepresentable {
     let viewModel: MapViewViewModel
     
     func makeUIViewController(context: Context) -> MapViewController {
-        let scene = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "MapViewController") as? MapViewController ?? MapViewController()
+        let scene = UIStoryboard.scene(type: MapViewController.self)
         scene.viewModel = viewModel
         return scene
     }
@@ -48,7 +48,7 @@ struct MapScene: View {
             }
         }.edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $showCity) {
-                CityScene(city: viewModel.location)
+                ForecastScene(city: viewModel.location)
             }
     }
 }

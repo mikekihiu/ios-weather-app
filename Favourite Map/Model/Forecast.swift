@@ -102,11 +102,11 @@ enum TemperatureIntensity {
     var text: String {
         switch self {
         case .min:
-            return "Min"
+            return "min".localized
         case .mid:
-            return "Current"
+            return "current".localized
         case .max:
-            return "Max"
+            return "max".localized
         }
     }
 }
@@ -121,13 +121,13 @@ enum WeatherCondition: String {
     var text: String {
         switch self {
         case .cloudy:
-            return "Cloudy"
+            return "cloudy".localized
         case .rainy:
-            return "Rainy"
+            return "rainy".localized
         case .sunny:
-            return "Sunny"
+            return "sunny".localized
         case .drizzle:
-            return "Drizzly"
+            return "drizzly".localized
         }
     }
 }

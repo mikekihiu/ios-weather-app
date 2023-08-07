@@ -6,25 +6,27 @@
 //
 
 import Foundation
+import Keys
+
 
 class WeatherAPI {
     
-    private static var API_KEY = "0b337c11cc6a779b2a4e4e6e70879a13"
+    private static var apiKey = FavouriteMapKeys().weatherApiKey
     
     public enum UnitSystem: String {
         case standard, metric, imperial
     }
     
     private enum Speed: String {
-        case MiPH = "miles/hour", MePS = "meter/sec"
+        case miPH = "miles/hour", mePS = "meter/sec"
     }
     
     private enum Temperature: String {
-        case K, F, C
+        case kelvin, fahrenheit, celsius
     }
     
     class func get5DayForecast(lat: Double, lon: Double, completion: @escaping ([Forecast]?, Error?) -> Void) {
-        let url = "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&units=\(getUnitSystem())&appid=\(API_KEY)"
+        let url = "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&units=\(getUnitSystem())&appid=\(apiKey)"
         let request = URLRequest(url: URL(string: url)!)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
@@ -44,7 +46,7 @@ class WeatherAPI {
                 var idx = 39
                 while (idx >= 7) {
                     forecasts.append(Forecast(results.list[idx], results.city))
-                    idx = idx - 8
+                    idx -= 8
                 }
                 DispatchQueue.main.async {
                     completion(forecasts.reversed(), nil)
@@ -61,7 +63,7 @@ class WeatherAPI {
     }
     
     class func getTodaysForecast(lat: Double, lon: Double, completion: @escaping (SingleForecast?, Error?) -> Void) {
-        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=\(getUnitSystem())&appid=\(API_KEY)"
+        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=\(getUnitSystem())&appid=\(apiKey)"
         let request = URLRequest(url: URL(string: url)!)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data else {
@@ -99,35 +101,22 @@ extension WeatherAPI {
         UserDefaults.standard.set(system, forKey: UserDefaults.Keys.unitSystem.rawValue)
     }
     
-    class var temperatureUnit: String {
-        switch UnitSystem(rawValue: getUnitSystem()) {
-        case .imperial:
-            return Temperature.F.rawValue
-        case .metric:
-            return Temperature.C.rawValue
-        case .standard:
-            return Temperature.K.rawValue
-        default:
-            return ""
-        }
-    }
-    
     class func getSpeedUnit() -> String {
         switch UnitSystem(rawValue: getUnitSystem()) {
         case .imperial:
-            return Speed.MiPH.rawValue
+            return Speed.miPH.rawValue
         case .metric, .standard:
-            return Speed.MePS.rawValue
+            return Speed.mePS.rawValue
         default:
             return ""
         }
     }
     
     class func updateApiKey(_ newKey: String) {
-        API_KEY = newKey
+        apiKey = newKey
     }
     
     class func validateApiKey() -> Bool {
-        return !API_KEY.replacingOccurrences(of: " ", with: "").isEmpty
+        return !apiKey.replacingOccurrences(of: " ", with: "").isEmpty
     }
 }

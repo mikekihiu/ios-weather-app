@@ -38,7 +38,9 @@ class HomeViewControllerTests: XCTestCase {
         let searchSearchField = homeNavigationBar.searchFields["Search"]
         searchSearchField.tap()
         searchSearchField.typeText("Spurs")
-        app/*@START_MENU_TOKEN@*/.tables["Search results"].cells.containing(.staticText, identifier:"Spurs").element/*[[".otherElements[\"Double-tap to dismiss\"].tables[\"Search results\"]",".cells.containing(.staticText, identifier:\"782 High Road, London, N17 0BX, England\").element",".cells.containing(.staticText, identifier:\"Spurs\").element",".tables[\"Search results\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+        app.tables["Search results"]
+            .cells.containing(.staticText, identifier:"Spurs")
+            .element.tap()
         app.navigationBars["Favourite_Map.MapView"].buttons["Home"].tap()
         homeNavigationBar.buttons["Cancel"].tap()
         XCTAssertTrue(app.tables.staticTexts["Tottenham Hotspur Football Club"].exists, "Bookmark location added")

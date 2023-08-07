@@ -47,9 +47,11 @@ class CoreDataStack {
 
 extension CoreDataStack {
     
+//     swiftlint:disable identifier_name
     enum Model: String {
         case Favourite_Map
     }
+    // swiftlint:enable identifier_name
     
     enum Cache: String  {
         case bookmarks

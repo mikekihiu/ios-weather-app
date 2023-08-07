@@ -39,7 +39,7 @@ extension BookmarkedLocation {
     static fileprivate func findFirst(_ stack: CoreDataStack, _ mapItem: MKMapItem) -> BookmarkedLocation? {
         let fetchRequest = getFetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title == %@", mapItem.name!)
-        return try! stack.viewContext.fetch(fetchRequest).first
+        return try? stack.viewContext.fetch(fetchRequest).first
     }
     
     class func delete(_ location: BookmarkedLocation?, _ coreDataStack: CoreDataStack = CoreDataStack.shared) {

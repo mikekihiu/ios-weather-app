@@ -49,20 +49,24 @@ class HomeViewController: UITableViewController {
     
     @IBAction func tappedOptions(_ sender: Any) {
         let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alertVC.addAction(UIAlertAction(title: "Settings", style: .default, handler: { _ in
+        alertVC.addAction(UIAlertAction(title: "settings".localized, style: .default, handler: { _ in
             self.performSegue(withIdentifier: HomeViewModel.SegueID.goToSettings.rawValue, sender: self)
         }))
-        alertVC.addAction(UIAlertAction(title: "Help", style: .default, handler: { _ in
+        alertVC.addAction(UIAlertAction(title: "help".localized, style: .default, handler: { _ in
             self.performSegue(withIdentifier: HomeViewModel.SegueID.goToHelp.rawValue, sender: self)
         }))
-        alertVC.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertVC.addAction(UIAlertAction(title: "cancel".localized, style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
     
 
     // MARK: Helper methods
     private func setupFetchedResultsController() {
-        viewModel.fetchedResultsController = NSFetchedResultsController(fetchRequest: BookmarkedLocation.getFetchRequest(), managedObjectContext: CoreDataStack.shared.viewContext, sectionNameKeyPath: nil, cacheName: CoreDataStack.Cache.bookmarks.rawValue)
+        viewModel.fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: BookmarkedLocation.getFetchRequest(),
+            managedObjectContext: CoreDataStack.shared.viewContext,
+            sectionNameKeyPath: nil,
+            cacheName: CoreDataStack.Cache.bookmarks.rawValue)
         viewModel.fetchedResultsController?.delegate = self
         try? viewModel.fetchedResultsController?.performFetch()
     }
@@ -71,7 +75,7 @@ class HomeViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch HomeViewModel.SegueID(rawValue: segue.identifier!) {
         case .goToCity:
-            if let vc = segue.destination as? CityViewController,
+            if let vc = segue.destination as? ForecastViewController,
                let index = tableView.indexPathForSelectedRow, let city = viewModel.fetchedResultsController?.object(at: index)  {
                 vc.viewModel.city = city
             }
@@ -97,7 +101,7 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewModel.TableViewReuseID.BookmarkedItem.rawValue, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewModel.TableViewReuseID.bookmarkedItem.rawValue, for: indexPath)
         if let bookmark = viewModel.fetchedResultsController?.object(at: indexPath) {
             cell.textLabel?.text = bookmark.title
             cell.detailTextLabel?.text = bookmark.subtitle
@@ -106,7 +110,7 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Bookmarked locations"
+        return "bookmarks".localized
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

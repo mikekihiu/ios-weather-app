@@ -1,5 +1,5 @@
 //
-//  CityScene.swift
+//  ForecastViewController+.swift
 //  Favourite Map
 //
 //  Created by Mike Kihiu on 07/08/2023.
@@ -11,18 +11,18 @@ struct CitySceneView: UIViewControllerRepresentable {
     
     var city: BookmarkedLocation?
     
-    func makeUIViewController(context: Context) -> CityViewController {
-        let scene = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "CityViewController") as? CityViewController ?? CityViewController()
+    func makeUIViewController(context: Context) -> ForecastViewController {
+        let scene = UIStoryboard.scene(type: ForecastViewController.self)
         scene.viewModel.city = city
         return scene
     }
     
-    func updateUIViewController(_ uiViewController: CityViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: ForecastViewController, context: Context) {
         //
     }
 }
 
-struct CityScene: View {
+struct ForecastScene: View {
     
     var city: BookmarkedLocation?
     
@@ -34,6 +34,6 @@ struct CityScene: View {
 
 struct CityScene_Previews: PreviewProvider {
     static var previews: some View {
-        CityScene(city: BookmarkedLocation.random())
+        ForecastScene(city: BookmarkedLocation.random())
     }
 }
