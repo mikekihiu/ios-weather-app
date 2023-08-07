@@ -12,14 +12,18 @@ import CoreData
 
 extension BookmarkedLocation {
     
-    class func save(_ mapItem: MKMapItem, _ stack: CoreDataStack = CoreDataStack.shared) {
-        if exists(stack, mapItem) { return }
+    @discardableResult
+    class func save(_ mapItem: MKMapItem, _ stack: CoreDataStack = CoreDataStack.shared) -> BookmarkedLocation {
+        if let existing = findFirst(stack, mapItem) {
+            return existing
+        }
         let bookmarkedLocation = BookmarkedLocation(context: stack.viewContext)
         bookmarkedLocation.title = mapItem.name
         bookmarkedLocation.subtitle = extractAddress(mapItem.placemark)
         bookmarkedLocation.lat = mapItem.placemark.coordinate.latitude
         bookmarkedLocation.lon = mapItem.placemark.coordinate.longitude
         stack.saveViewContext()
+        return bookmarkedLocation
     }
     
     static fileprivate func extractAddress(_ placemark: MKPlacemark) -> String {
@@ -31,11 +35,11 @@ extension BookmarkedLocation {
     /// - Parameters:
     ///   - stack: core data stack
     ///   - mapItem: map item that's about to be converted to a BookmarkedLocation
-    /// - Returns: true if exists, else false
-    static fileprivate func exists(_ stack: CoreDataStack, _ mapItem: MKMapItem) -> Bool {
+    /// - Returns: value if exists, else nil
+    static fileprivate func findFirst(_ stack: CoreDataStack, _ mapItem: MKMapItem) -> BookmarkedLocation? {
         let fetchRequest = getFetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title == %@", mapItem.name!)
-        return try! stack.viewContext.fetch(fetchRequest).count > 0
+        return try! stack.viewContext.fetch(fetchRequest).first
     }
     
     class func delete(_ location: BookmarkedLocation?, _ coreDataStack: CoreDataStack = CoreDataStack.shared) {
@@ -57,7 +61,9 @@ extension BookmarkedLocation {
         do {
             try stack.persistentContainer.persistentStoreCoordinator.execute(batchDeleteRequest, with: stack.viewContext)
         } catch {
+            #if DEBUG
             print(error)
+            #endif
         }
     }
 }

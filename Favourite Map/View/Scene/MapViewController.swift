@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import SwiftUI
 
 class MapViewController: UIViewController {
     
@@ -14,14 +15,17 @@ class MapViewController: UIViewController {
     
     var mapItem: MKMapItem?
     var boundingRegion: MKCoordinateRegion?
+    private lazy var viewModel = MapViewViewModel()
     
-    private enum AnnotationReusableID: String {
-        case pin
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bindMapRegion()
+        registerIdentifiers()
+        addCityNavigation()
+    }
+    
+    private func bindMapRegion() {
         mapView.delegate = self
         if let region = boundingRegion {
             mapView.region = region
@@ -29,18 +33,38 @@ class MapViewController: UIViewController {
         if let mapItem = mapItem {
             mapView.region.center = mapItem.placemark.coordinate
             mapView.addAnnotation(Location(coordinate: mapItem.placemark.coordinate, title: mapItem.name!))
-            BookmarkedLocation.save(mapItem)
+            viewModel.bookmark(mapItem)
         }
-
-        // Register reusable identifiers
+    }
+    
+    private func registerIdentifiers() {
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationReusableID.pin.rawValue)
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+    }
+    
+    private func addCityNavigation() {
+        let fab = _UIHostingView(rootView: FloatingActionButton())
+        fab.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showCity)))
+        view.addSubview(fab)
+        NSLayoutConstraint.activate([
+            fab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            fab.widthAnchor.constraint(equalToConstant: 48),
+            fab.heightAnchor.constraint(equalToConstant: 48),
+            fab.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24)
+        ])
+    }
+    
+    @objc private func showCity() {
+        guard let cityScene = viewModel.cityScene else { return }
+        present(cityScene, animated: true)
     }
 }
 
 extension MapViewController: MKMapViewDelegate {
     func mapViewDidFailLoadingMap(_ mapView: MKMapView, withError error: Error) {
+        #if DEBUG
         print("Failed to load the map: \(error)")
+        #endif
         showError(error)
     }
     
@@ -52,6 +76,10 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
+// MARK: Helpers
+private enum AnnotationReusableID: String {
+    case pin
+}
 
 
 

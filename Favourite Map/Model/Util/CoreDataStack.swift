@@ -61,7 +61,9 @@ extension CoreDataStack {
     
     func autoSaveViewContext(interval:TimeInterval = 30) {
         guard interval > 0 else {
+            #if DEBUG
             print("cannot set negative autosave interval")
+            #endif
             return
         }
         if viewContext.hasChanges {

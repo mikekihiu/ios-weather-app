@@ -140,6 +140,9 @@ extension SearchResultsViewController {
         localSearch = MKLocalSearch(request: searchRequest)
         localSearch?.start { [weak self] (response, error) in
             guard error == nil else {
+                #if DEBUG
+                debugPrint(error ?? "-")
+                #endif
                 self?.showError(error)
                 return
             }

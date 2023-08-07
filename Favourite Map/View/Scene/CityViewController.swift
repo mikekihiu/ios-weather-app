@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CityDelegate: class {
+protocol CityDelegate: AnyObject {
     func didCompleteNetworkCalls()
     func showError(_ error: Error?)
     func showProgress(_ show: Bool)

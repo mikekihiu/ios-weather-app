@@ -27,14 +27,18 @@ extension HomeViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        #if DEBUG
         print(error)
+        #endif
     }
     
     func saveCurrentLocation(_ location: CLLocation?) {
         guard let location = location else { return }
         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
             if let error = error {
+                #if DEBUG
                 print(error)
+                #endif
             }
             if let placemark = placemarks?.first {
                 let item = MKMapItem(placemark: MKPlacemark(placemark: placemark))

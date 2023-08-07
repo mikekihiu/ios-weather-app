@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherAPI {
     
-    private static var API_KEY = ""
+    private static var API_KEY = "0b337c11cc6a779b2a4e4e6e70879a13"
     
     public enum UnitSystem: String {
         case standard, metric, imperial
@@ -50,7 +50,9 @@ class WeatherAPI {
                     completion(forecasts.reversed(), nil)
                 }
             } catch {
+                #if DEBUG
                 print(error)
+                #endif
                 DispatchQueue.main.async {
                     completion(nil, error)
                 }
@@ -75,7 +77,9 @@ class WeatherAPI {
                     completion(result, nil)
                 }
             } catch {
+                #if DEBUG
                 print(error)
+                #endif
                 DispatchQueue.main.async {
                     completion(nil, error)
                 }
