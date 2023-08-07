@@ -76,8 +76,9 @@ class HomeViewController: UITableViewController {
         switch HomeViewModel.SegueID(rawValue: segue.identifier!) {
         case .goToCity:
             if let vc = segue.destination as? ForecastViewController,
-               let index = tableView.indexPathForSelectedRow, let city = viewModel.fetchedResultsController?.object(at: index)  {
-                vc.viewModel.city = city
+               let index = tableView.indexPathForSelectedRow,
+               let location = viewModel.fetchedResultsController?.object(at: index)  {
+                vc.viewModel.location = location
             }
             break
         default:

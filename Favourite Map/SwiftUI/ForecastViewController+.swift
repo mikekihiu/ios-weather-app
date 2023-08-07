@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct CitySceneView: UIViewControllerRepresentable {
+struct ForecastSceneView: UIViewControllerRepresentable {
     
-    var city: BookmarkedLocation?
+    var location: BookmarkedLocation?
     
     func makeUIViewController(context: Context) -> ForecastViewController {
         let scene = UIStoryboard.scene(type: ForecastViewController.self)
-        scene.viewModel.city = city
+        scene.viewModel.location = location
         return scene
     }
     
@@ -24,16 +24,16 @@ struct CitySceneView: UIViewControllerRepresentable {
 
 struct ForecastScene: View {
     
-    var city: BookmarkedLocation?
+    var location: BookmarkedLocation?
     
     var body: some View {
-        CitySceneView(city: city)
+        ForecastSceneView(location: location)
             .edgesIgnoringSafeArea(.bottom)
     }
 }
 
 struct CityScene_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastScene(city: BookmarkedLocation.random())
+        ForecastScene(location: BookmarkedLocation.random())
     }
 }

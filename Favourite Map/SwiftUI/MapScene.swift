@@ -26,7 +26,7 @@ fileprivate struct MapSceneView: UIViewControllerRepresentable {
 struct MapScene: View {
     
     let viewModel: MapViewViewModel
-    @State var showCity = false
+    @State private var showForecast = false
     
     var body: some View {
         ZStack {
@@ -42,13 +42,13 @@ struct MapScene: View {
                         .clipShape(Circle())
                         .shadow(radius: 4)
                         .onTapGesture {
-                            showCity.toggle()
+                            showForecast.toggle()
                         }
                 }.padding(16)
             }
         }.edgesIgnoringSafeArea(.all)
-            .sheet(isPresented: $showCity) {
-                ForecastScene(city: viewModel.location)
+            .sheet(isPresented: $showForecast) {
+                ForecastScene(location: viewModel.location)
             }
     }
 }

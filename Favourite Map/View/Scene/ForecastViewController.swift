@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CityDelegate: AnyObject {
+protocol ForecastDelegate: AnyObject {
     func didCompleteNetworkCalls()
     func showError(_ error: Error?)
     func showProgress(_ show: Bool)
@@ -15,7 +15,7 @@ protocol CityDelegate: AnyObject {
 
 class ForecastViewController: UIViewController {
 
-    lazy var viewModel = CityViewModel(cityDelegate: self)
+    lazy var viewModel = ForecastViewModel(delegate: self)
 
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -33,7 +33,7 @@ class ForecastViewController: UIViewController {
             showApiError()
             return
         }
-        if viewModel.city != nil {
+        if viewModel.location != nil {
             showProgress(true)
             viewModel.callWeatherApi()
         }
@@ -92,7 +92,7 @@ extension ForecastViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 //MARK: CityDelegate
-extension ForecastViewController: CityDelegate {
+extension ForecastViewController: ForecastDelegate {
     
     func didCompleteNetworkCalls() {
         tableView.reloadData()

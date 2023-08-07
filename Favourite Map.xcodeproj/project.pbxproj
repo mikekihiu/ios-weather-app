@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2723332927E0519200E24071 /* HomeViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723332827E0519200E24071 /* HomeViewController+.swift */; };
 		2723332C27E052C100E24071 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723332B27E052C100E24071 /* HomeViewModel.swift */; };
-		2723332E27E066AE00E24071 /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723332D27E066AE00E24071 /* CityViewModel.swift */; };
+		2723332E27E066AE00E24071 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723332D27E066AE00E24071 /* ForecastViewModel.swift */; };
 		273AFE8927DF752900AD3534 /* HeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273AFE8827DF752900AD3534 /* HeaderLabel.swift */; };
 		273AFE8B27DF82A200AD3534 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273AFE8A27DF82A200AD3534 /* HeaderView.swift */; };
 		273AFE8D27DF8C4F00AD3534 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273AFE8C27DF8C4F00AD3534 /* UITableView+.swift */; };
@@ -72,7 +72,7 @@
 		08B8D4CA4E96C9268F15C9E8 /* Pods-Favourite Map-Favourite MapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favourite Map-Favourite MapUITests.debug.xcconfig"; path = "Target Support Files/Pods-Favourite Map-Favourite MapUITests/Pods-Favourite Map-Favourite MapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2723332827E0519200E24071 /* HomeViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+.swift"; sourceTree = "<group>"; };
 		2723332B27E052C100E24071 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		2723332D27E066AE00E24071 /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
+		2723332D27E066AE00E24071 /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
 		273AFE8827DF752900AD3534 /* HeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
 		273AFE8A27DF82A200AD3534 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		273AFE8C27DF8C4F00AD3534 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				2723332B27E052C100E24071 /* HomeViewModel.swift */,
-				2723332D27E066AE00E24071 /* CityViewModel.swift */,
+				2723332D27E066AE00E24071 /* ForecastViewModel.swift */,
 				276545F42A80C6FE00F6DF15 /* MapViewViewModel.swift */,
 			);
 			path = ViewModel;
@@ -618,7 +618,7 @@
 				27E90748255E7C9D00B38AB9 /* Forecast.swift in Sources */,
 				274B5DA0255FA26000DEB0B5 /* SettingsViewController.swift in Sources */,
 				275F25AF27DF1841002FF051 /* DayCell.swift in Sources */,
-				2723332E27E066AE00E24071 /* CityViewModel.swift in Sources */,
+				2723332E27E066AE00E24071 /* ForecastViewModel.swift in Sources */,
 				27EFC3F82A80E96400E09DF1 /* ForecastViewController+.swift in Sources */,
 				275F25B227DF19C2002FF051 /* Date+.swift in Sources */,
 				274B8870255CEE0C00F57966 /* SceneDelegate.swift in Sources */,
