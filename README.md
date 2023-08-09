@@ -17,4 +17,4 @@ Ensures conformance to Swift programming language conventions
 - run `pod install`
 - enter your open weather api key when prompted
 - open `Favourite Map.xcworkspace`
-- build & run to you preferred device/simulator
+- build & run to your preferred device/simulator
