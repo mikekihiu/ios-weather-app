@@ -14,7 +14,7 @@ class SearchResultsViewModel {
     var searchCompleter: MKLocalSearchCompleter?
     private var searchRegion: MKCoordinateRegion = MKCoordinateRegion(MKMapRect.world)
     
-    var completerResults: PassthroughSubject<[MKLocalSearchCompletion]?, Error>?
+    let completerResults = PassthroughSubject<[MKLocalSearchCompletion]?, Never>()
     var results: [MKLocalSearchCompletion]?
     
     private var localSearch: MKLocalSearch? {
@@ -25,7 +25,7 @@ class SearchResultsViewModel {
     
     private var selectedRegion: MKCoordinateRegion?
     
-    var selectedMapItem: PassthroughSubject<MKMapItem?, Error>?
+    let selectedMapItem = PassthroughSubject<MKMapItem?, Never>()
     private var selectedLocation: MKMapItem?
     
     var cancellableStore = Set<AnyCancellable>()
@@ -64,7 +64,7 @@ extension SearchResultsViewModel {
             }
             self?.selectedRegion = response?.boundingRegion
             self?.selectedLocation = response?.mapItems.first
-            self?.selectedMapItem?.send(response?.mapItems.first)
+            self?.selectedMapItem.send(response?.mapItems.first)
         }
     }
 }

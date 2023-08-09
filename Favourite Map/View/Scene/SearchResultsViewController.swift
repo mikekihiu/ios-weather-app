@@ -32,7 +32,7 @@ class SearchResultsViewController: UITableViewController {
     }
     
     private func bindViewModel() {
-        viewModel.completerResults?
+        viewModel.completerResults
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { error in
                 #if DEBUG
@@ -42,7 +42,7 @@ class SearchResultsViewController: UITableViewController {
                 self?.tableView.reloadData()
             }).store(in: &viewModel.cancellableStore)
         
-        viewModel.selectedMapItem?
+        viewModel.selectedMapItem
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { error in
                 #if DEBUG
@@ -124,7 +124,7 @@ class SearchResultsTableViewCell: UITableViewCell {
 extension SearchResultsViewController: MKLocalSearchCompleterDelegate {
     
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        viewModel.completerResults?.send(completer.results)
+        viewModel.completerResults.send(completer.results)
         viewModel.results = completer.results
     }
     
