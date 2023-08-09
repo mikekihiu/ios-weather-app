@@ -25,7 +25,7 @@ class HeaderView: UITableViewHeaderFooterView {
     }
     
     private func setUp() {
-        divider.backgroundColor = .white
+        divider.backgroundColor = .clear
         divider.translatesAutoresizingMaskIntoConstraints = false
         
         [leftLabel, centerLabel, rightLabel, divider].forEach { addSubview($0) }
@@ -44,7 +44,7 @@ class HeaderView: UITableViewHeaderFooterView {
             rightLabel.centerYAnchor.constraint(equalTo: leftLabel.centerYAnchor),
             
             divider.widthAnchor.constraint(equalTo: widthAnchor),
-            divider.heightAnchor.constraint(equalToConstant: 1),
+            divider.heightAnchor.constraint(equalToConstant: 0.5),
             divider.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
@@ -54,5 +54,6 @@ class HeaderView: UITableViewHeaderFooterView {
         leftLabel.configure(value: forecast.temperature(.min), intensity: .min)
         centerLabel.configure(value: forecast.temperature(.mid), intensity: .mid)
         rightLabel.configure(value: forecast.temperature(.max), intensity: .max)
+        divider.backgroundColor = .white
     }
 }
