@@ -1,0 +1,25 @@
+name: Merge Develop
+env:
+  BRANCH_NAME: ${{ github.head_ref }}
+on:
+  push:
+    branches: ["develop"]
+
+concurrency:
+  group: ${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}
+  cancel-in-progress: true    
+
+jobs:
+
+  run-tests:
+#    name: Tests
+    runs-on: macos-latest
+    
+    steps:
+      - name: Checkout app
+        uses: actions/checkout@v3
+#        with:
+#          token: ${{ secrets.READ_PRIVATE_GITHUB_REPO_TOKEN }}
+
+      - name: Unit & UI Tests
+        run: ./.github/scripts/run-tests
