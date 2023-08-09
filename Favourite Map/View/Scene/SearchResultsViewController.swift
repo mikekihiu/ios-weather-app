@@ -142,7 +142,7 @@ extension SearchResultsViewController {
                 #if DEBUG
                 debugPrint(error ?? "-")
                 #endif
-                self?.showError(error)
+//                self?.showError(error)
                 return
             }
             self?.selectedRegion = response?.boundingRegion

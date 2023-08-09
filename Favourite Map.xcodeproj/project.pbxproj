@@ -45,8 +45,8 @@
 		27F770C92562549A00176D1F /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F770C82562549A00176D1F /* TestCoreDataStack.swift */; };
 		27F770CE2562589B00176D1F /* BookmarkedLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F770CD2562589B00176D1F /* BookmarkedLocationTests.swift */; };
 		27F770D62562781700176D1F /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F770D52562781700176D1F /* HomeViewControllerTests.swift */; };
-		465D9FE86161B20850949523 /* Pods_Favourite_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77555E8DCEE8404E81F58EF5 /* Pods_Favourite_Map.framework */; };
 		6A65BDCE670AF0FB465BBFDD /* Pods_Favourite_Map_Favourite_MapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB0D0D17DCE048704ECAC1C /* Pods_Favourite_Map_Favourite_MapUITests.framework */; };
+		87330C6D01D0D1DF707D548E /* Pods_Favourite_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77555E8DCEE8404E81F58EF5 /* Pods_Favourite_Map.framework */; };
 		910729E271CD76DB020F5805 /* Pods_Favourite_MapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286B0E143E26E36B31CEEAD7 /* Pods_Favourite_MapTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				465D9FE86161B20850949523 /* Pods_Favourite_Map.framework in Frameworks */,
+				87330C6D01D0D1DF707D548E /* Pods_Favourite_Map.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,11 +240,10 @@
 		274B886C255CEE0C00F57966 /* Favourite Map */ = {
 			isa = PBXGroup;
 			children = (
-				276545F62A80C82600F6DF15 /* SwiftUI */,
 				27E90754255E870300B38AB9 /* View */,
 				2723332A27E052A600E24071 /* ViewModel */,
 				274B88D3255D60BA00F57966 /* Model */,
-				274B88A7255CEF6700F57966 /* AppDelegate */,
+				274B88A7255CEF6700F57966 /* App */,
 				274B88BE255D02E500F57966 /* Resources */,
 			);
 			path = "Favourite Map";
@@ -270,13 +269,13 @@
 			path = "Favourite MapUITests";
 			sourceTree = "<group>";
 		};
-		274B88A7255CEF6700F57966 /* AppDelegate */ = {
+		274B88A7255CEF6700F57966 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				274B886D255CEE0C00F57966 /* AppDelegate.swift */,
 				274B886F255CEE0C00F57966 /* SceneDelegate.swift */,
 			);
-			path = AppDelegate;
+			path = App;
 			sourceTree = "<group>";
 		};
 		274B88BE255D02E500F57966 /* Resources */ = {
@@ -328,6 +327,7 @@
 		27E90754255E870300B38AB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				276545F62A80C82600F6DF15 /* SwiftUI */,
 				2723332627E0503200E24071 /* Cell */,
 				2723332527E04FF600E24071 /* Scene */,
 				2723332727E0505800E24071 /* Custom */,
@@ -858,7 +858,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ST8VX96LAJ;
 				INFOPLIST_FILE = "Favourite MapTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -881,7 +881,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ST8VX96LAJ;
 				INFOPLIST_FILE = "Favourite MapTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -903,6 +903,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ST8VX96LAJ;
 				INFOPLIST_FILE = "Favourite MapUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -924,6 +925,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ST8VX96LAJ;
 				INFOPLIST_FILE = "Favourite MapUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
