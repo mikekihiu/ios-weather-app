@@ -1,1 +1,4 @@
-xcodebuild -workspace Favourite\ Map.xcworkspace -scheme Favourite\ Map -configuration Debug -destination 'platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro' test-without-building
+gem install cocoapods-keys
+echo "$WEATHER_KEY" >> $RUNNER_TEMP/temp
+pod install < $RUNNER_TEMP/temp
+xcodebuild -workspace Favourite\ Map.xcworkspace -scheme Favourite\ Map -configuration Debug -destination 'platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro' test
