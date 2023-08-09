@@ -3,16 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2723332927E0519200E24071 /* HomeScene+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723332827E0519200E24071 /* HomeScene+.swift */; };
+		2723332927E0519200E24071 /* HomeViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723332827E0519200E24071 /* HomeViewController+.swift */; };
 		2723332C27E052C100E24071 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723332B27E052C100E24071 /* HomeViewModel.swift */; };
-		2723332E27E066AE00E24071 /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723332D27E066AE00E24071 /* CityViewModel.swift */; };
+		2723332E27E066AE00E24071 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2723332D27E066AE00E24071 /* ForecastViewModel.swift */; };
 		273AFE8927DF752900AD3534 /* HeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273AFE8827DF752900AD3534 /* HeaderLabel.swift */; };
 		273AFE8B27DF82A200AD3534 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273AFE8A27DF82A200AD3534 /* HeaderView.swift */; };
 		273AFE8D27DF8C4F00AD3534 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273AFE8C27DF8C4F00AD3534 /* UITableView+.swift */; };
+		27478FE92A8103C8009848AE /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27478FE82A8103C8009848AE /* UIStoryboard+.swift */; };
+		27478FEC2A81077B009848AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27478FEB2A81077B009848AE /* Localizable.strings */; };
 		274B5DA0255FA26000DEB0B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274B5D9F255FA26000DEB0B5 /* SettingsViewController.swift */; };
 		274B5DA5255FCB8500DEB0B5 /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 274B5DA4255FCB8500DEB0B5 /* help.html */; };
 		274B5DAA255FCC6600DEB0B5 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274B5DA9255FCC6600DEB0B5 /* HelpViewController.swift */; };
@@ -33,13 +35,20 @@
 		275F25AF27DF1841002FF051 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F25AE27DF1841002FF051 /* DayCell.swift */; };
 		275F25B227DF19C2002FF051 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F25B127DF19C2002FF051 /* Date+.swift */; };
 		275F25B427DF28D7002FF051 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275F25B327DF28D7002FF051 /* String+.swift */; };
+		276545F52A80C6FE00F6DF15 /* MapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276545F42A80C6FE00F6DF15 /* MapViewViewModel.swift */; };
+		276545F82A80CDF200F6DF15 /* MapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276545F72A80CDF200F6DF15 /* MapScene.swift */; };
+		278F3CE52A839B10001624F4 /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278F3CE42A839B10001624F4 /* SearchResultsViewModel.swift */; };
 		27E90743255E518100B38AB9 /* BookMarkedLocation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E90742255E518100B38AB9 /* BookMarkedLocation+.swift */; };
 		27E90748255E7C9D00B38AB9 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E90747255E7C9C00B38AB9 /* Forecast.swift */; };
-		27E90750255E817E00B38AB9 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9074F255E817E00B38AB9 /* CityViewController.swift */; };
+		27E90750255E817E00B38AB9 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9074F255E817E00B38AB9 /* ForecastViewController.swift */; };
 		27E9075B255EA38A00B38AB9 /* ViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9075A255EA38A00B38AB9 /* ViewController+.swift */; };
+		27EFC3F82A80E96400E09DF1 /* ForecastViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFC3F72A80E96400E09DF1 /* ForecastViewController+.swift */; };
 		27F770C92562549A00176D1F /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F770C82562549A00176D1F /* TestCoreDataStack.swift */; };
 		27F770CE2562589B00176D1F /* BookmarkedLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F770CD2562589B00176D1F /* BookmarkedLocationTests.swift */; };
 		27F770D62562781700176D1F /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F770D52562781700176D1F /* HomeViewControllerTests.swift */; };
+		6A65BDCE670AF0FB465BBFDD /* Pods_Favourite_Map_Favourite_MapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB0D0D17DCE048704ECAC1C /* Pods_Favourite_Map_Favourite_MapUITests.framework */; };
+		87330C6D01D0D1DF707D548E /* Pods_Favourite_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77555E8DCEE8404E81F58EF5 /* Pods_Favourite_Map.framework */; };
+		910729E271CD76DB020F5805 /* Pods_Favourite_MapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286B0E143E26E36B31CEEAD7 /* Pods_Favourite_MapTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,12 +69,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2723332827E0519200E24071 /* HomeScene+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScene+.swift"; sourceTree = "<group>"; };
+		029E74BD695E0EF5EF569F3C /* Pods-Favourite Map.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favourite Map.debug.xcconfig"; path = "Target Support Files/Pods-Favourite Map/Pods-Favourite Map.debug.xcconfig"; sourceTree = "<group>"; };
+		08B8D4CA4E96C9268F15C9E8 /* Pods-Favourite Map-Favourite MapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favourite Map-Favourite MapUITests.debug.xcconfig"; path = "Target Support Files/Pods-Favourite Map-Favourite MapUITests/Pods-Favourite Map-Favourite MapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2723332827E0519200E24071 /* HomeViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+.swift"; sourceTree = "<group>"; };
 		2723332B27E052C100E24071 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		2723332D27E066AE00E24071 /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
+		2723332D27E066AE00E24071 /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
 		273AFE8827DF752900AD3534 /* HeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabel.swift; sourceTree = "<group>"; };
 		273AFE8A27DF82A200AD3534 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		273AFE8C27DF8C4F00AD3534 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		27478FE82A8103C8009848AE /* UIStoryboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+.swift"; sourceTree = "<group>"; };
+		27478FEB2A81077B009848AE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		274B5D9F255FA26000DEB0B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		274B5DA4255FCB8500DEB0B5 /* help.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = help.html; sourceTree = "<group>"; };
 		274B5DA9255FCC6600DEB0B5 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -92,13 +105,24 @@
 		275F25AE27DF1841002FF051 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		275F25B127DF19C2002FF051 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		275F25B327DF28D7002FF051 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		276545F42A80C6FE00F6DF15 /* MapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewModel.swift; sourceTree = "<group>"; };
+		276545F72A80CDF200F6DF15 /* MapScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
+		278F3CE42A839B10001624F4 /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
 		27E90742255E518100B38AB9 /* BookMarkedLocation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMarkedLocation+.swift"; sourceTree = "<group>"; };
 		27E90747255E7C9C00B38AB9 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
-		27E9074F255E817E00B38AB9 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		27E9074F255E817E00B38AB9 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		27E9075A255EA38A00B38AB9 /* ViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+.swift"; sourceTree = "<group>"; };
+		27EFC3F72A80E96400E09DF1 /* ForecastViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForecastViewController+.swift"; sourceTree = "<group>"; };
 		27F770C82562549A00176D1F /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		27F770CD2562589B00176D1F /* BookmarkedLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkedLocationTests.swift; sourceTree = "<group>"; };
 		27F770D52562781700176D1F /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		286B0E143E26E36B31CEEAD7 /* Pods_Favourite_MapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Favourite_MapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EB0D0D17DCE048704ECAC1C /* Pods_Favourite_Map_Favourite_MapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Favourite_Map_Favourite_MapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54337E92DBC77C59495FCBB9 /* Pods-Favourite Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favourite Map.release.xcconfig"; path = "Target Support Files/Pods-Favourite Map/Pods-Favourite Map.release.xcconfig"; sourceTree = "<group>"; };
+		63417A92AE0A190FD3B3CB47 /* Pods-Favourite MapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favourite MapTests.release.xcconfig"; path = "Target Support Files/Pods-Favourite MapTests/Pods-Favourite MapTests.release.xcconfig"; sourceTree = "<group>"; };
+		77555E8DCEE8404E81F58EF5 /* Pods_Favourite_Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Favourite_Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFF7CB8E53F9ACFB496FB2F6 /* Pods-Favourite MapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favourite MapTests.debug.xcconfig"; path = "Target Support Files/Pods-Favourite MapTests/Pods-Favourite MapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F9C537246611410898F9E0D0 /* Pods-Favourite Map-Favourite MapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favourite Map-Favourite MapUITests.release.xcconfig"; path = "Target Support Files/Pods-Favourite Map-Favourite MapUITests/Pods-Favourite Map-Favourite MapUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87330C6D01D0D1DF707D548E /* Pods_Favourite_Map.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910729E271CD76DB020F5805 /* Pods_Favourite_MapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,23 +146,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A65BDCE670AF0FB465BBFDD /* Pods_Favourite_Map_Favourite_MapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24024179C4080C8109F39AC4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				029E74BD695E0EF5EF569F3C /* Pods-Favourite Map.debug.xcconfig */,
+				54337E92DBC77C59495FCBB9 /* Pods-Favourite Map.release.xcconfig */,
+				08B8D4CA4E96C9268F15C9E8 /* Pods-Favourite Map-Favourite MapUITests.debug.xcconfig */,
+				F9C537246611410898F9E0D0 /* Pods-Favourite Map-Favourite MapUITests.release.xcconfig */,
+				CFF7CB8E53F9ACFB496FB2F6 /* Pods-Favourite MapTests.debug.xcconfig */,
+				63417A92AE0A190FD3B3CB47 /* Pods-Favourite MapTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		2723332527E04FF600E24071 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				274B88B0255CEFD700F57966 /* MapViewController.swift */,
 				274B88C9255D28C700F57966 /* HomeViewController.swift */,
 				274B88CE255D47B800F57966 /* SearchResultsViewController.swift */,
-				27E9074F255E817E00B38AB9 /* CityViewController.swift */,
-				27E9075A255EA38A00B38AB9 /* ViewController+.swift */,
+				27E9074F255E817E00B38AB9 /* ForecastViewController.swift */,
 				274B5D9F255FA26000DEB0B5 /* SettingsViewController.swift */,
 				274B5DA9255FCC6600DEB0B5 /* HelpViewController.swift */,
-				2723332827E0519200E24071 /* HomeScene+.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -162,9 +200,22 @@
 			isa = PBXGroup;
 			children = (
 				2723332B27E052C100E24071 /* HomeViewModel.swift */,
-				2723332D27E066AE00E24071 /* CityViewModel.swift */,
+				2723332D27E066AE00E24071 /* ForecastViewModel.swift */,
+				276545F42A80C6FE00F6DF15 /* MapViewViewModel.swift */,
+				278F3CE42A839B10001624F4 /* SearchResultsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		27478FEA2A8103D5009848AE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2723332827E0519200E24071 /* HomeViewController+.swift */,
+				27E9075A255EA38A00B38AB9 /* ViewController+.swift */,
+				273AFE8C27DF8C4F00AD3534 /* UITableView+.swift */,
+				27478FE82A8103C8009848AE /* UIStoryboard+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		274B8861255CEE0C00F57966 = {
@@ -174,6 +225,8 @@
 				274B8886255CEE0D00F57966 /* Favourite MapTests */,
 				274B8891255CEE0D00F57966 /* Favourite MapUITests */,
 				274B886B255CEE0C00F57966 /* Products */,
+				24024179C4080C8109F39AC4 /* Pods */,
+				840E99D6155836011DDC1033 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,7 +246,7 @@
 				27E90754255E870300B38AB9 /* View */,
 				2723332A27E052A600E24071 /* ViewModel */,
 				274B88D3255D60BA00F57966 /* Model */,
-				274B88A7255CEF6700F57966 /* AppDelegate */,
+				274B88A7255CEF6700F57966 /* App */,
 				274B88BE255D02E500F57966 /* Resources */,
 			);
 			path = "Favourite Map";
@@ -219,13 +272,13 @@
 			path = "Favourite MapUITests";
 			sourceTree = "<group>";
 		};
-		274B88A7255CEF6700F57966 /* AppDelegate */ = {
+		274B88A7255CEF6700F57966 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				274B886D255CEE0C00F57966 /* AppDelegate.swift */,
 				274B886F255CEE0C00F57966 /* SceneDelegate.swift */,
 			);
-			path = AppDelegate;
+			path = App;
 			sourceTree = "<group>";
 		};
 		274B88BE255D02E500F57966 /* Resources */ = {
@@ -237,6 +290,7 @@
 				274B887E255CEE0D00F57966 /* Info.plist */,
 				274B8876255CEE0C00F57966 /* Favourite_Map.xcdatamodeld */,
 				274B5DA4255FCB8500DEB0B5 /* help.html */,
+				27478FEB2A81077B009848AE /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -264,15 +318,35 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		276545F62A80C82600F6DF15 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				276545F72A80CDF200F6DF15 /* MapScene.swift */,
+				27EFC3F72A80E96400E09DF1 /* ForecastViewController+.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		27E90754255E870300B38AB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				276545F62A80C82600F6DF15 /* SwiftUI */,
 				2723332627E0503200E24071 /* Cell */,
 				2723332527E04FF600E24071 /* Scene */,
 				2723332727E0505800E24071 /* Custom */,
-				273AFE8C27DF8C4F00AD3534 /* UITableView+.swift */,
+				27478FEA2A8103D5009848AE /* Extension */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		840E99D6155836011DDC1033 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77555E8DCEE8404E81F58EF5 /* Pods_Favourite_Map.framework */,
+				4EB0D0D17DCE048704ECAC1C /* Pods_Favourite_Map_Favourite_MapUITests.framework */,
+				286B0E143E26E36B31CEEAD7 /* Pods_Favourite_MapTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +356,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 274B8897255CEE0D00F57966 /* Build configuration list for PBXNativeTarget "Favourite Map" */;
 			buildPhases = (
+				0FD4E8A83E508C023FD1A818 /* [CP] Check Pods Manifest.lock */,
 				274B8866255CEE0C00F57966 /* Sources */,
 				274B8867255CEE0C00F57966 /* Frameworks */,
 				274B8868255CEE0C00F57966 /* Resources */,
+				D6F815B0689D9C02D8B7C205 /* [CP] Embed Pods Frameworks */,
+				27478FED2A811227009848AE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -299,6 +376,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 274B889A255CEE0D00F57966 /* Build configuration list for PBXNativeTarget "Favourite MapTests" */;
 			buildPhases = (
+				AC239B7FCD0D703BE1E7406F /* [CP] Check Pods Manifest.lock */,
 				274B887F255CEE0D00F57966 /* Sources */,
 				274B8880255CEE0D00F57966 /* Frameworks */,
 				274B8881255CEE0D00F57966 /* Resources */,
@@ -317,9 +395,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 274B889D255CEE0D00F57966 /* Build configuration list for PBXNativeTarget "Favourite MapUITests" */;
 			buildPhases = (
+				4AA86D80F87A1B87B133D8C0 /* [CP] Check Pods Manifest.lock */,
 				274B888A255CEE0D00F57966 /* Sources */,
 				274B888B255CEE0D00F57966 /* Frameworks */,
 				274B888C255CEE0D00F57966 /* Resources */,
+				6A45648CA8A2BBDD3032A824 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,8 +417,9 @@
 		274B8862255CEE0C00F57966 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					274B8869255CEE0C00F57966 = {
 						CreatedOnToolsVersion = 12.0;
@@ -378,6 +459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27478FEC2A81077B009848AE /* Localizable.strings in Resources */,
 				274B887D255CEE0D00F57966 /* LaunchScreen.storyboard in Resources */,
 				274B5DA5255FCB8500DEB0B5 /* help.html in Resources */,
 				274B887A255CEE0D00F57966 /* Assets.xcassets in Resources */,
@@ -401,6 +483,127 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0FD4E8A83E508C023FD1A818 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Favourite Map-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27478FED2A811227009848AE /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		4AA86D80F87A1B87B133D8C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Favourite Map-Favourite MapUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A45648CA8A2BBDD3032A824 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Favourite Map-Favourite MapUITests/Pods-Favourite Map-Favourite MapUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Favourite Map-Favourite MapUITests/Pods-Favourite Map-Favourite MapUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Favourite Map-Favourite MapUITests/Pods-Favourite Map-Favourite MapUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC239B7FCD0D703BE1E7406F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Favourite MapTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6F815B0689D9C02D8B7C205 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Favourite Map/Pods-Favourite Map-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Favourite Map/Pods-Favourite Map-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Favourite Map/Pods-Favourite Map-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		274B8866255CEE0C00F57966 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -408,8 +611,9 @@
 			files = (
 				274B88CA255D28C700F57966 /* HomeViewController.swift in Sources */,
 				27E9075B255EA38A00B38AB9 /* ViewController+.swift in Sources */,
-				27E90750255E817E00B38AB9 /* CityViewController.swift in Sources */,
-				2723332927E0519200E24071 /* HomeScene+.swift in Sources */,
+				276545F52A80C6FE00F6DF15 /* MapViewViewModel.swift in Sources */,
+				27E90750255E817E00B38AB9 /* ForecastViewController.swift in Sources */,
+				2723332927E0519200E24071 /* HomeViewController+.swift in Sources */,
 				274B88CF255D47B800F57966 /* SearchResultsViewController.swift in Sources */,
 				274B8878255CEE0C00F57966 /* Favourite_Map.xcdatamodeld in Sources */,
 				275F25B427DF28D7002FF051 /* String+.swift in Sources */,
@@ -417,10 +621,12 @@
 				27E90748255E7C9D00B38AB9 /* Forecast.swift in Sources */,
 				274B5DA0255FA26000DEB0B5 /* SettingsViewController.swift in Sources */,
 				275F25AF27DF1841002FF051 /* DayCell.swift in Sources */,
-				2723332E27E066AE00E24071 /* CityViewModel.swift in Sources */,
+				2723332E27E066AE00E24071 /* ForecastViewModel.swift in Sources */,
+				27EFC3F82A80E96400E09DF1 /* ForecastViewController+.swift in Sources */,
 				275F25B227DF19C2002FF051 /* Date+.swift in Sources */,
 				274B8870255CEE0C00F57966 /* SceneDelegate.swift in Sources */,
 				274B88EC255DB0EA00F57966 /* CoreDataStack.swift in Sources */,
+				276545F82A80CDF200F6DF15 /* MapScene.swift in Sources */,
 				273AFE8B27DF82A200AD3534 /* HeaderView.swift in Sources */,
 				274B5DAA255FCC6600DEB0B5 /* HelpViewController.swift in Sources */,
 				273AFE8D27DF8C4F00AD3534 /* UITableView+.swift in Sources */,
@@ -431,6 +637,8 @@
 				273AFE8927DF752900AD3534 /* HeaderLabel.swift in Sources */,
 				27E90743255E518100B38AB9 /* BookMarkedLocation+.swift in Sources */,
 				274B88D5255D60DA00F57966 /* Location.swift in Sources */,
+				27478FE92A8103C8009848AE /* UIStoryboard+.swift in Sources */,
+				278F3CE52A839B10001624F4 /* SearchResultsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,12 +813,14 @@
 		};
 		274B8898255CEE0D00F57966 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 029E74BD695E0EF5EF569F3C /* Pods-Favourite Map.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ST8VX96LAJ;
+				DEVELOPMENT_TEAM = G9VXELKDB9;
 				INFOPLIST_FILE = "Favourite Map/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,12 +834,14 @@
 		};
 		274B8899255CEE0D00F57966 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54337E92DBC77C59495FCBB9 /* Pods-Favourite Map.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ST8VX96LAJ;
+				DEVELOPMENT_TEAM = G9VXELKDB9;
 				INFOPLIST_FILE = "Favourite Map/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,13 +855,14 @@
 		};
 		274B889B255CEE0D00F57966 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFF7CB8E53F9ACFB496FB2F6 /* Pods-Favourite MapTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ST8VX96LAJ;
 				INFOPLIST_FILE = "Favourite MapTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -665,13 +878,14 @@
 		};
 		274B889C255CEE0D00F57966 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63417A92AE0A190FD3B3CB47 /* Pods-Favourite MapTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ST8VX96LAJ;
 				INFOPLIST_FILE = "Favourite MapTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -687,11 +901,13 @@
 		};
 		274B889E255CEE0D00F57966 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08B8D4CA4E96C9268F15C9E8 /* Pods-Favourite Map-Favourite MapUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ST8VX96LAJ;
 				INFOPLIST_FILE = "Favourite MapUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -707,11 +923,13 @@
 		};
 		274B889F255CEE0D00F57966 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9C537246611410898F9E0D0 /* Pods-Favourite Map-Favourite MapUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ST8VX96LAJ;
 				INFOPLIST_FILE = "Favourite MapUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

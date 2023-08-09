@@ -1,5 +1,5 @@
 //
-//  CityViewController.swift
+//  ForecastViewController.swift
 //  Favourite Map
 //
 //  Created by Mike on 13/11/2020.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol CityDelegate: class {
+protocol ForecastDelegate: AnyObject {
     func didCompleteNetworkCalls()
     func showError(_ error: Error?)
     func showProgress(_ show: Bool)
 }
 
-class CityViewController: UIViewController {
+class ForecastViewController: UIViewController {
 
-    lazy var viewModel = CityViewModel(cityDelegate: self)
+    lazy var viewModel = ForecastViewModel(delegate: self)
 
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -33,8 +33,7 @@ class CityViewController: UIViewController {
             showApiError()
             return
         }
-        if viewModel.city != nil {
-//            navigationItem.title = city.title
+        if viewModel.location != nil {
             showProgress(true)
             viewModel.callWeatherApi()
         }
@@ -61,8 +60,8 @@ class CityViewController: UIViewController {
     }
     
     func showApiError() {
-        let vc = UIAlertController(title: "Required!", message: "Set API_KEY at WeatherAPI.swift and run the app again", preferredStyle: .alert)
-        vc.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+        let vc = UIAlertController(title: "required".localized, message: "weather-api-key-error".localized, preferredStyle: .alert)
+        vc.addAction(UIAlertAction(title: "ok".localized, style: .default, handler: { _ in
             self.navigationController?.popViewController(animated: true)
         }))
         present(vc, animated: true, completion: nil)
@@ -71,7 +70,7 @@ class CityViewController: UIViewController {
 
 
 //MARK: TableView Delegate & Datasource
-extension CityViewController: UITableViewDelegate, UITableViewDataSource {
+extension ForecastViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.forecasts?.count ?? 0
@@ -93,7 +92,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 //MARK: CityDelegate
-extension CityViewController: CityDelegate {
+extension ForecastViewController: ForecastDelegate {
     
     func didCompleteNetworkCalls() {
         tableView.reloadData()

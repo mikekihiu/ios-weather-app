@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  Favourite Map
+
+  Created by Mike Kihiu on 07/08/2023.
+  
+*/
+"settings" = "Settings";
+"help" = "Help";
+"cancel" = "Cancel";
+"bookmarks" = "Bookmarked locations";
+"results" = "Search results";
+"required" = "Required!";
+"weather-api-key-error" = "Set weatherApiKey when prompted the first time pod install command is run";
+"ok" = "Ok";
+"clear" = "Clear";
+"confirm-clear-bookmarks" = "Sure you want to clear all bookmarked location?";
+"error" = "Error";
+"generic-error" = "Something went wrong. Please try again later.";
+"cloudy" = "Cloudy";
+"rainy" = "Rainy";
+"sunny" = "Sunny";
+"drizzly" = "Drizzly";
+"min" = "Min";
+"current" = "Current";
+"max" = "Max";

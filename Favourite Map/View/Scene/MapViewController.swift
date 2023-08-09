@@ -7,32 +7,33 @@
 
 import UIKit
 import MapKit
+import SwiftUI
 
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var mapItem: MKMapItem?
-    var boundingRegion: MKCoordinateRegion?
-    
-    private enum AnnotationReusableID: String {
-        case pin
-    }
+    var viewModel: MapViewViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bindMapRegion()
+        registerIdentifiers()
+    }
+    
+    private func bindMapRegion() {
         mapView.delegate = self
-        if let region = boundingRegion {
+        if let region = viewModel?.boundingRegion {
             mapView.region = region
         }
-        if let mapItem = mapItem {
+        if let mapItem = viewModel?.mapItem {
             mapView.region.center = mapItem.placemark.coordinate
             mapView.addAnnotation(Location(coordinate: mapItem.placemark.coordinate, title: mapItem.name!))
-            BookmarkedLocation.save(mapItem)
+            viewModel?.bookmark(mapItem)
         }
-
-        // Register reusable identifiers
+    }
+    
+    private func registerIdentifiers() {
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: AnnotationReusableID.pin.rawValue)
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
     }
@@ -40,7 +41,9 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MKMapViewDelegate {
     func mapViewDidFailLoadingMap(_ mapView: MKMapView, withError error: Error) {
+        #if DEBUG
         print("Failed to load the map: \(error)")
+        #endif
         showError(error)
     }
     
@@ -52,6 +55,10 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
+// MARK: Helpers
+private enum AnnotationReusableID: String {
+    case pin
+}
 
 
 

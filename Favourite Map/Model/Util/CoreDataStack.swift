@@ -47,9 +47,11 @@ class CoreDataStack {
 
 extension CoreDataStack {
     
+//     swiftlint:disable identifier_name
     enum Model: String {
         case Favourite_Map
     }
+    // swiftlint:enable identifier_name
     
     enum Cache: String  {
         case bookmarks
@@ -61,7 +63,9 @@ extension CoreDataStack {
     
     func autoSaveViewContext(interval:TimeInterval = 30) {
         guard interval > 0 else {
+            #if DEBUG
             print("cannot set negative autosave interval")
+            #endif
             return
         }
         if viewContext.hasChanges {

@@ -17,4 +17,8 @@ extension String {
         formatter.roundingMode = .halfUp
         return formatter.string(from: NSNumber(value: number)) ?? self
     }
+    
+    var localized: String {
+        NSLocalizedString(self, comment: "")
+    }
 }

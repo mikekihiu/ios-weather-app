@@ -11,7 +11,7 @@ import CoreLocation
 struct HomeViewModel {
     
     enum TableViewReuseID: String {
-        case BookmarkedItem
+        case bookmarkedItem
     }
 
     enum SegueID: String {
