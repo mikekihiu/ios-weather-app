@@ -34,21 +34,13 @@ class SearchResultsViewController: UITableViewController {
     private func bindViewModel() {
         viewModel.completerResults
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { error in
-                #if DEBUG
-                print(error)
-                #endif
-            }, receiveValue: { [weak self] _ in
+            .sink(receiveValue: { [weak self] _ in
                 self?.tableView.reloadData()
             }).store(in: &viewModel.cancellableStore)
         
         viewModel.selectedMapItem
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { error in
-                #if DEBUG
-                print(error)
-                #endif
-            }, receiveValue: { [weak self] _ in
+            .sink(receiveValue: { [weak self] _ in
                 guard let self else { return }
                 self.host?.navigationController?.pushViewController(self.viewModel.mapScene, animated: true)
             }).store(in: &viewModel.cancellableStore)
