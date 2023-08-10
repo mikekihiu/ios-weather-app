@@ -21,4 +21,4 @@ jobs:
       - name: Unit & UI Tests
         env:
           WEATHER_KEY: ${{secrets.WEATHER_KEY}}
-        run: ./.github/scripts/pod-install
+        run: ./.github/scripts/run-tests
