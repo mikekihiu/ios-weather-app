@@ -1,12 +1,6 @@
-KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-
 gem install cocoapods-keys
 
-security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-security add-generic-password -a WeatherApiKey -s cocoapods-keys-FavouriteMap -w $WEATHER_KEY -A -k $KEYCHAIN_PATH
-security list-keychain -d user -s $KEYCHAIN_PATH
+security add-generic-password -a WeatherApiKey -s cocoapods-keys-FavouriteMap -w $WEATHER_KEY -A
 
 pod install
 
