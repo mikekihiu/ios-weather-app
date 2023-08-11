@@ -1,7 +1,7 @@
 security add-generic-password -a WeatherApiKey -s cocoapods-keys-FavouriteMap -w $WEATHER_KEY -A
 security list-keychain -d user -s
 
-#gem install cocoapods-keys
+gem install cocoapods-keys
 
 pod install
 
