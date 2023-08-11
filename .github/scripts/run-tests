@@ -1,10 +1,2 @@
-#security add-generic-password -a WeatherApiKey -s cocoapods-keys-FavouriteMap -w $WEATHER_KEY -A
-#security list-keychain -d user -s
-
-gem install cocoapods-keys
-
-echo "$WEATHER_KEY" >> temp
-cat temp
-pod install < temp
-
-xcodebuild -workspace Favourite\ Map.xcworkspace -scheme Favourite\ Map -configuration Debug -destination 'platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro' test
+pod install
+xcodebuild -workspace Favourite\ Map.xcworkspace -scheme Debug -configuration Debug -destination 'platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro' test
