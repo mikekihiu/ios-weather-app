@@ -21,5 +21,4 @@ jobs:
       - name: Unit & UI Tests
         env:
           WEATHER_KEY: ${{secrets.WEATHER_KEY}}
-          KEYCHAIN_PASSWORD: ${{secrets.KEYCHAIN_PASSWORD}}
         run: ./.github/scripts/run-tests

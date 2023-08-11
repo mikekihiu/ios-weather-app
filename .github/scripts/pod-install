@@ -1,5 +1,0 @@
-#!/usr/bin/expect
-
-spawn "./.github/scripts/run-tests"
-
-expect "What is the key for WeatherApiKey" { send "$WEATHER_KEY\r" }
