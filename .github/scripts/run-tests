@@ -1,2 +1,2 @@
 pod install
-xcodebuild -workspace Favourite\ Map.xcworkspace -scheme Debug -configuration Debug -destination 'platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro' test
+xcodebuild -workspace Favourite\ Map.xcworkspace -scheme Favourite\ Map -configuration Debug -destination 'platform=iOS Simulator,OS=16.2,name=iPhone 14 Pro' test
