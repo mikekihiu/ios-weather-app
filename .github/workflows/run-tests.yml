@@ -1,6 +1,5 @@
 name: Run Tests
-env:
-  BRANCH_NAME: ${{ github.head_ref }}
+
 on:
   push:
     branches: ["develop"]
