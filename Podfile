@@ -18,11 +18,11 @@ target 'Favourite Map' do
 
 end
 
-#plugin 'cocoapods-keys', {
-#  :project => "FavouriteMap",
-#  :keys => [
-#    "WeatherApiKey"
-#  ]}
+plugin 'cocoapods-keys', {
+  :project => "FavouriteMap",
+  :keys => [
+    "WeatherApiKey"
+  ]}
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

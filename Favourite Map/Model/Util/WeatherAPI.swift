@@ -6,11 +6,11 @@
 //
 
 import Foundation
-
+import Keys
 
 class WeatherAPI {
     
-    private static var apiKey: String = Bundle.main.infoDictionary?["WEATHER_KEY"] as? String ?? ""
+    private static var apiKey = FavouriteMapKeys().weatherApiKey
     
     public enum UnitSystem: String {
         case standard, metric, imperial

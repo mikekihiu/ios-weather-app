@@ -108,7 +108,6 @@
 		276545F42A80C6FE00F6DF15 /* MapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewModel.swift; sourceTree = "<group>"; };
 		276545F72A80CDF200F6DF15 /* MapScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
 		278F3CE42A839B10001624F4 /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
-		27AB529B2A8612DC00A2DA79 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		27E90742255E518100B38AB9 /* BookMarkedLocation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookMarkedLocation+.swift"; sourceTree = "<group>"; };
 		27E90747255E7C9C00B38AB9 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		27E9074F255E817E00B38AB9 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
@@ -222,7 +221,6 @@
 		274B8861255CEE0C00F57966 = {
 			isa = PBXGroup;
 			children = (
-				27AB529B2A8612DC00A2DA79 /* Config.xcconfig */,
 				274B886C255CEE0C00F57966 /* Favourite Map */,
 				274B8886255CEE0D00F57966 /* Favourite MapTests */,
 				274B8891255CEE0D00F57966 /* Favourite MapUITests */,
@@ -363,6 +361,7 @@
 				274B8867255CEE0C00F57966 /* Frameworks */,
 				274B8868255CEE0C00F57966 /* Resources */,
 				27478FED2A811227009848AE /* SwiftLint */,
+				AA144846DBF784BB0C87EAC9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -400,6 +399,7 @@
 				274B888A255CEE0D00F57966 /* Sources */,
 				274B888B255CEE0D00F57966 /* Frameworks */,
 				274B888C255CEE0D00F57966 /* Resources */,
+				94F7AB7D4A7F9CF538B17F37 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -546,6 +546,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		94F7AB7D4A7F9CF538B17F37 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Favourite Map-Favourite MapUITests/Pods-Favourite Map-Favourite MapUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Favourite Map-Favourite MapUITests/Pods-Favourite Map-Favourite MapUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Favourite Map-Favourite MapUITests/Pods-Favourite Map-Favourite MapUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA144846DBF784BB0C87EAC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Favourite Map/Pods-Favourite Map-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Favourite Map/Pods-Favourite Map-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Favourite Map/Pods-Favourite Map-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AC239B7FCD0D703BE1E7406F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -663,7 +697,6 @@
 /* Begin XCBuildConfiguration section */
 		274B8895255CEE0D00F57966 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27AB529B2A8612DC00A2DA79 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -725,7 +758,6 @@
 		};
 		274B8896255CEE0D00F57966 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27AB529B2A8612DC00A2DA79 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

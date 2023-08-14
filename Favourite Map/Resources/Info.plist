@@ -66,7 +66,5 @@
 	<string>Show weather forecast for your city/town</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Show weather forecast for your city/town</string>
-	<key>WEATHER_KEY</key>
-	<string>$(WEATHER_KEY)</string>
 </dict>
 </plist>
