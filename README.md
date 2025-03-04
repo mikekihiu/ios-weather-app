@@ -1,4 +1,4 @@
-# FavouriteMap
+# Weather app
 A simple iOS app to view weather forecast for bookmarked locations made with UIKit, SwiftUI & GitHub Actions
 
 # Third party dependencies
